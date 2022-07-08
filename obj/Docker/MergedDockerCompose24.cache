@@ -1,0 +1,41 @@
+services:
+  database:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Rm17Op12
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+    - published: 1433
+      target: 1433
+  migration:
+    command:
+    - Add-Migration
+    - InitMigrations
+    depends_on:
+      database:
+        condition: service_started
+    image: webapplication1:latest
+    links:
+    - database
+  webapplication1:
+    build:
+      context: D:\Projetos\TesteDocker
+      dockerfile: WebApplication1/Dockerfile
+    depends_on:
+      database:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: webapplication1
+    ports:
+    - published: 4201
+      target: 80
+    - target: 80
+    - published: 4200
+      target: 443
+    - target: 443
+    volumes:
+    - C:\Users\Computador\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Computador\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

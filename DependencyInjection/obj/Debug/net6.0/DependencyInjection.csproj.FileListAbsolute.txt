@@ -1,0 +1,17 @@
+D:\Projetos\TesteDocker\DependencyInjection\bin\Debug\net6.0\DependencyInjection.deps.json
+D:\Projetos\TesteDocker\DependencyInjection\bin\Debug\net6.0\DependencyInjection.runtimeconfig.json
+D:\Projetos\TesteDocker\DependencyInjection\bin\Debug\net6.0\DependencyInjection.dll
+D:\Projetos\TesteDocker\DependencyInjection\bin\Debug\net6.0\DependencyInjection.pdb
+D:\Projetos\TesteDocker\DependencyInjection\bin\Debug\net6.0\Domain.dll
+D:\Projetos\TesteDocker\DependencyInjection\bin\Debug\net6.0\Domain.pdb
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.csproj.AssemblyReference.cache
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.AssemblyInfoInputs.cache
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.AssemblyInfo.cs
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.csproj.CoreCompileInputs.cache
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.csproj.CopyComplete
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.dll
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\refint\DependencyInjection.dll
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.pdb
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\DependencyInjection.genruntimeconfig.cache
+D:\Projetos\TesteDocker\DependencyInjection\obj\Debug\net6.0\ref\DependencyInjection.dll

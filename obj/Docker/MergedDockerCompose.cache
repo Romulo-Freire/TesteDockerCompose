@@ -1,0 +1,16 @@
+services:
+  webapplication1:
+    build:
+      context: D:\Projetos\TesteDocker
+      dockerfile: WebApplication1/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: webapplication1
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\Computador\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Computador\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

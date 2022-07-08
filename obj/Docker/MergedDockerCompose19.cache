@@ -1,0 +1,52 @@
+services:
+  database:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Rm17Op12
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+    - published: 1433
+      target: 1433
+  webapplication1:
+    build:
+      context: D:\Projetos\TesteDocker
+      dockerfile: WebApplication1/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: WebApplication1
+      target: base
+    command: Add-Migration InitMigrations
+    container_name: WebApplication1_1
+    depends_on:
+      database:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: webapplication1:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net6.0/WebApplication1.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 4201
+      target: 80
+    - target: 80
+    - published: 4200
+      target: 443
+    - target: 443
+    tty: true
+    volumes:
+    - D:\Projetos\TesteDocker\WebApplication1:/app:rw
+    - C:\Users\Computador\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\Computador\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Computador\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\Computador\.nuget\packages:/root/.nuget/packages:ro
+    - D:\Projetos\TesteDocker:/src:rw
+version: '3.4'
